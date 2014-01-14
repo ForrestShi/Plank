@@ -1,0 +1,7 @@
+platform :ios ,'7.0'
+pod 'MDRadialProgress'
+pod 'PNChart'
+pod 'BlocksKit'
+pod 'BaseModel'
+pod 'AutoCoding'
+pod 'SIAlertView'
