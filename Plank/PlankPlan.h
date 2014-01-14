@@ -14,4 +14,7 @@
 
 @property (nonatomic,strong) NSMutableArray *plankSessions;
 
+- (NSArray*)dateArray;
+- (NSArray*)scoreArray;
+
 @end

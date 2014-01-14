@@ -11,6 +11,6 @@
 @interface Session : BaseModel
 
 @property (nonatomic,strong) NSNumber *timeSpent;
-@property (nonatomic,strong) NSDate *dateStart;
+@property (nonatomic,strong) NSDate *dateEnd;
 
 @end
