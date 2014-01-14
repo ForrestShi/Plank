@@ -86,6 +86,11 @@ static const int TOTAL = 60;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)onTimer{
+    sessionCount++;
+    self.todayProgressView.progressCounter = sessionCount;
+}
+
 - (IBAction)onStart:(id)sender{
     
     if (timerStatus) {
@@ -113,11 +118,7 @@ static const int TOTAL = 60;
         //START
         
         if (!sessionTimer) {
-            sessionTimer = [NSTimer bk_timerWithTimeInterval:1 block:^(NSTimer *timer) {
-                sessionCount++;
-                self.todayProgressView.progressCounter = sessionCount;
-                
-            } repeats:YES];
+            sessionTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
             
             [[NSRunLoop currentRunLoop] addTimer:sessionTimer forMode:NSDefaultRunLoopMode];
         }

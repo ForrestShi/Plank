@@ -16,11 +16,11 @@
 #import <MDRadialProgress/MDRadialProgressTheme.h>
 #import <MDRadialProgress/MDRadialProgressLabel.h>
 #import <MDRadialProgress/MDRadialProgressView.h>
-#import <BlocksKit/BlocksKit.h>
+//#import <BlocksKit/BlocksKit.h>
 #import <PNChart/PNChart.h>
 #import <BaseModel/BaseModel.h>
 //#import <AutoCoding/AutoCoding.h>
-#import <SIAlertView/SIAlertView.h>
+//#import <SIAlertView/SIAlertView.h>
 #import <PNChart/PNChart.h>
 
 

@@ -27,10 +27,10 @@
 }
 
 - (void)runLocalNotificationForeground:(NSString*)message{
-    SIAlertView *alertView = [[SIAlertView alloc]  initWithTitle:@"" andMessage:message];
-    [alertView addButtonWithTitle:@"Gotcha" type:SIAlertViewButtonTypeDestructive handler:^(SIAlertView *alertView) {
-        
-    }];
-    [alertView show];
+//    SIAlertView *alertView = [[SIAlertView alloc]  initWithTitle:@"" andMessage:message];
+//    [alertView addButtonWithTitle:@"Gotcha" type:SIAlertViewButtonTypeDestructive handler:^(SIAlertView *alertView) {
+//        
+//    }];
+//    [alertView show];
 }
 @end
