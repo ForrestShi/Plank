@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE69ADE9A5A04D7AAB0B0BC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C835511E8C764B5CBCE53A42 /* libPods.a */; };
 		CD85558B187E9C7100D0860B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD85558A187E9C7100D0860B /* Foundation.framework */; };
 		CD85558D187E9C7100D0860B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD85558C187E9C7100D0860B /* CoreGraphics.framework */; };
 		CD85558F187E9C7100D0860B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD85558E187E9C7100D0860B /* UIKit.framework */; };
@@ -14,13 +15,16 @@
 		CD855597187E9C7100D0860B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD855596187E9C7100D0860B /* main.m */; };
 		CD85559B187E9C7100D0860B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD85559A187E9C7100D0860B /* AppDelegate.m */; };
 		CD85559E187E9C7100D0860B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD85559C187E9C7100D0860B /* Main.storyboard */; };
-		CD8555A1187E9C7100D0860B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8555A0187E9C7100D0860B /* ViewController.m */; };
+		CD8555A1187E9C7100D0860B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8555A0187E9C7100D0860B /* MainViewController.m */; };
 		CD8555A3187E9C7100D0860B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD8555A2187E9C7100D0860B /* Images.xcassets */; };
 		CD8555AA187E9C7100D0860B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8555A9187E9C7100D0860B /* XCTest.framework */; };
 		CD8555AB187E9C7100D0860B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD85558A187E9C7100D0860B /* Foundation.framework */; };
 		CD8555AC187E9C7100D0860B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD85558E187E9C7100D0860B /* UIKit.framework */; };
 		CD8555B4187E9C7100D0860B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD8555B2187E9C7100D0860B /* InfoPlist.strings */; };
 		CD8555B6187E9C7100D0860B /* PlankTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8555B5187E9C7100D0860B /* PlankTests.m */; };
+		CDB98EEB1884F208008CD2F8 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EEA1884F208008CD2F8 /* Session.m */; };
+		CDB98EEF1884F27B008CD2F8 /* PlankPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EEE1884F27B008CD2F8 /* PlankPlan.m */; };
+		CDB98EF218853170008CD2F8 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB98EF118853170008CD2F8 /* LocalNotificationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23A24D41339E42E69037FBA9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C835511E8C764B5CBCE53A42 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD855587187E9C7100D0860B /* Plank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD85558A187E9C7100D0860B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD85558C187E9C7100D0860B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,14 +51,20 @@
 		CD855599187E9C7100D0860B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD85559A187E9C7100D0860B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CD85559D187E9C7100D0860B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CD85559F187E9C7100D0860B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CD8555A0187E9C7100D0860B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD85559F187E9C7100D0860B /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		CD8555A0187E9C7100D0860B /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CD8555A2187E9C7100D0860B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CD8555A8187E9C7100D0860B /* PlankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8555A9187E9C7100D0860B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CD8555B1187E9C7100D0860B /* PlankTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlankTests-Info.plist"; sourceTree = "<group>"; };
 		CD8555B3187E9C7100D0860B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD8555B5187E9C7100D0860B /* PlankTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlankTests.m; sourceTree = "<group>"; };
+		CDB98EE91884F208008CD2F8 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		CDB98EEA1884F208008CD2F8 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		CDB98EED1884F27B008CD2F8 /* PlankPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlankPlan.h; sourceTree = "<group>"; };
+		CDB98EEE1884F27B008CD2F8 /* PlankPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlankPlan.m; sourceTree = "<group>"; };
+		CDB98EF018853170008CD2F8 /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
+		CDB98EF118853170008CD2F8 /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +75,7 @@
 				CD85558D187E9C7100D0860B /* CoreGraphics.framework in Frameworks */,
 				CD85558F187E9C7100D0860B /* UIKit.framework in Frameworks */,
 				CD85558B187E9C7100D0860B /* Foundation.framework in Frameworks */,
+				BE69ADE9A5A04D7AAB0B0BC3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +99,7 @@
 				CD8555AF187E9C7100D0860B /* PlankTests */,
 				CD855589187E9C7100D0860B /* Frameworks */,
 				CD855588187E9C7100D0860B /* Products */,
+				23A24D41339E42E69037FBA9 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +119,7 @@
 				CD85558C187E9C7100D0860B /* CoreGraphics.framework */,
 				CD85558E187E9C7100D0860B /* UIKit.framework */,
 				CD8555A9187E9C7100D0860B /* XCTest.framework */,
+				C835511E8C764B5CBCE53A42 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,13 +127,16 @@
 		CD855590187E9C7100D0860B /* Plank */ = {
 			isa = PBXGroup;
 			children = (
+				CDB98EEC1884F20F008CD2F8 /* DataModel */,
 				CD855599187E9C7100D0860B /* AppDelegate.h */,
 				CD85559A187E9C7100D0860B /* AppDelegate.m */,
 				CD85559C187E9C7100D0860B /* Main.storyboard */,
-				CD85559F187E9C7100D0860B /* ViewController.h */,
-				CD8555A0187E9C7100D0860B /* ViewController.m */,
+				CD85559F187E9C7100D0860B /* MainViewController.h */,
+				CD8555A0187E9C7100D0860B /* MainViewController.m */,
 				CD8555A2187E9C7100D0860B /* Images.xcassets */,
 				CD855591187E9C7100D0860B /* Supporting Files */,
+				CDB98EF018853170008CD2F8 /* LocalNotificationManager.h */,
+				CDB98EF118853170008CD2F8 /* LocalNotificationManager.m */,
 			);
 			path = Plank;
 			sourceTree = "<group>";
@@ -152,6 +170,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CDB98EEC1884F20F008CD2F8 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				CDB98EE91884F208008CD2F8 /* Session.h */,
+				CDB98EEA1884F208008CD2F8 /* Session.m */,
+				CDB98EED1884F27B008CD2F8 /* PlankPlan.h */,
+				CDB98EEE1884F27B008CD2F8 /* PlankPlan.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD8555B9187E9C7100D0860B /* Build configuration list for PBXNativeTarget "Plank" */;
 			buildPhases = (
+				7C877B20BC664DBA95BF9AEF /* Check Pods Manifest.lock */,
 				CD855583187E9C7100D0860B /* Sources */,
 				CD855584187E9C7100D0860B /* Frameworks */,
 				CD855585187E9C7100D0860B /* Resources */,
+				37A72B8CABDA48399BC78AD4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,13 +275,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37A72B8CABDA48399BC78AD4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C877B20BC664DBA95BF9AEF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD855583187E9C7100D0860B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD8555A1187E9C7100D0860B /* ViewController.m in Sources */,
+				CDB98EEB1884F208008CD2F8 /* Session.m in Sources */,
+				CD8555A1187E9C7100D0860B /* MainViewController.m in Sources */,
+				CDB98EEF1884F27B008CD2F8 /* PlankPlan.m in Sources */,
 				CD85559B187E9C7100D0860B /* AppDelegate.m in Sources */,
+				CDB98EF218853170008CD2F8 /* LocalNotificationManager.m in Sources */,
 				CD855597187E9C7100D0860B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +442,7 @@
 		};
 		CD8555BA187E9C7100D0860B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23A24D41339E42E69037FBA9 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -388,6 +456,7 @@
 		};
 		CD8555BB187E9C7100D0860B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23A24D41339E42E69037FBA9 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -460,6 +529,7 @@
 				CD8555BB187E9C7100D0860B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD8555BC187E9C7100D0860B /* Build configuration list for PBXNativeTarget "PlankTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +538,7 @@
 				CD8555BE187E9C7100D0860B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
