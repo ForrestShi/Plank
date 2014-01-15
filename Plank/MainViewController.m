@@ -11,8 +11,9 @@
 #import "PNChart.h"
 
 static const int TOTAL = 60;
+static const int PAGE_MAX = 3;
 
-@interface MainViewController (){
+@interface MainViewController ()<UIScrollViewDelegate>{
 
     NSTimer *sessionTimer;
     long sessionCount;
@@ -47,23 +48,29 @@ static const int TOTAL = 60;
     self.todayProgressView.progressTotal = TOTAL;
     //self.todayProgressView.progressCounter = 0;
     //MDRadialProgressTheme *curTheme = [[MDRadialProgressTheme alloc] init];
-    self.todayProgressView.theme.incompletedColor = [UIColor clearColor];
+    self.todayProgressView.theme.incompletedColor = [UIColor iOS7lightGrayColor];
+    self.todayProgressView.theme.completedColor = [UIColor iOS7greenColor];
+    self.todayProgressView.theme.sliceDividerHidden = YES;
     self.todayProgressView.label.hidden = YES;
+    
+    self.pageCtr.transform = CGAffineTransformRotate(self.pageCtr.transform, M_PI_2);
     
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.scrollBGView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height *2);
+    self.scrollBGView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height * PAGE_MAX);
     self.scrollBGView.frame = self.view.bounds;
     self.scrollBGView.scrollEnabled = YES;
-
+    self.scrollBGView.pagingEnabled = YES;
+    self.scrollBGView.delegate = self;
 
     float barCalWidth = 44.* ( [PlankPlan sharedInstance].plankSessions != nil ? [PlankPlan sharedInstance].plankSessions.count:0);
     
     self.scrollHorStatusView.backgroundColor = [UIColor clearColor];
     self.scrollHorStatusView.contentSize = CGSizeMake(self.view.bounds.size.width > barCalWidth ? self.view.bounds.size.width : barCalWidth, self.scrollHorStatusView.frame.size.height);
     self.scrollHorStatusView.scrollEnabled = YES;
+
     PNBarChart *barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, barCalWidth, self.scrollHorStatusView.bounds.size.height)];
     if ([PlankPlan sharedInstance].plankSessions) {
         [barChart setXLabels:[PlankPlan sharedInstance].dateArray];
@@ -76,7 +83,8 @@ static const int TOTAL = 60;
     [self.scrollHorStatusView addSubview:barChart];
     
 
-    NSLog(@"%s",__PRETTY_FUNCTION__);
+    [self.pageCtr setCurrentPage:0];
+    [self.pageCtr setNumberOfPages:3];
 }
 
 
@@ -133,6 +141,16 @@ static const int TOTAL = 60;
 
     DLog(@"DUMP %@" , [[PlankPlan sharedInstance] plankSessions] );
     
+}
+
+#pragma mark - Page Controller & Scroll Gesture
+- (IBAction)onChangePage:(id)sender{
+
+    [self.scrollBGView setContentOffset:CGPointMake(0,  self.pageCtr.currentPage*self.view.bounds.size.height) animated:YES];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.pageCtr setCurrentPage:scrollView.contentOffset.y/self.view.bounds.size.height];
 }
 
 @end

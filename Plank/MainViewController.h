@@ -13,10 +13,12 @@
 @property (nonatomic,strong) IBOutlet UIScrollView *scrollBGView;
 @property (nonatomic,strong) IBOutlet UIScrollView *scrollHorStatusView;
 @property (nonatomic,strong) IBOutlet UIImageView *bgImageView;
+@property (nonatomic,strong) IBOutlet UIPageControl *pageCtr;
 
 @property (nonatomic,strong) IBOutlet MDRadialProgressView *todayProgressView;
 @property (nonatomic,strong) IBOutlet UIButton *startBtn;
 
 - (IBAction)onStart:(id)sender;
+- (IBAction)onChangePage:(id)sender;
 
 @end

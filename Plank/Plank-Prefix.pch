@@ -22,8 +22,9 @@
 //#import <AutoCoding/AutoCoding.h>
 //#import <SIAlertView/SIAlertView.h>
 #import <PNChart/PNChart.h>
-
-
+#import <UIColor+MLPFlatColors/UIColor+MLPFlatColors.h>
+#import <iOS7Colors/UIColor+iOS7Colors.h>
+#import <Colours/UIColor+Colours.h>
 
 #import "Session.h"
 #import "PlankPlan.h"

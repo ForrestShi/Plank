@@ -47,11 +47,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="EDm-9m-kIF">
+                                <rect key="frame" x="276" y="268" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onChangePage:" destination="vXZ-lx-hvc" eventType="valueChanged" id="bcz-FV-xG0"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="bgImageView" destination="zOe-5X-9Pi" id="xSX-qp-1Cd"/>
+                        <outlet property="pageCtr" destination="EDm-9m-kIF" id="ktk-IN-5iG"/>
                         <outlet property="scrollBGView" destination="Gud-bm-hPM" id="cJd-xq-eDX"/>
                         <outlet property="scrollHorStatusView" destination="cLl-Jr-reD" id="Xcf-Jb-uTX"/>
                         <outlet property="startBtn" destination="veO-bv-gQ8" id="0GQ-OS-tmc"/>
