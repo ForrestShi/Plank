@@ -18,7 +18,7 @@
     NSMutableArray *arr = [NSMutableArray array];
     if (self.plankSessions) {
         for (Session *s in self.plankSessions) {
-            NSString *ss = [NSString stringWithFormat:@"%@", s.dateEnd];
+            NSString *ss = [NSDate stringForDisplayFromDate:s.dateEnd prefixed:NO alwaysDisplayTime:YES];
             DLog(@"%@",ss);
             [arr addObject:ss];
         }

@@ -18,6 +18,7 @@ static const int PAGE_MAX = 3;
     NSTimer *sessionTimer;
     long sessionCount;
     BOOL timerStatus;
+    PNBarChart *barChart;
 }
 
 @end
@@ -48,9 +49,10 @@ static const int PAGE_MAX = 3;
     self.todayProgressView.progressTotal = TOTAL;
     //self.todayProgressView.progressCounter = 0;
     //MDRadialProgressTheme *curTheme = [[MDRadialProgressTheme alloc] init];
-    self.todayProgressView.theme.incompletedColor = [UIColor iOS7lightGrayColor];
-    self.todayProgressView.theme.completedColor = [UIColor iOS7greenColor];
+    self.todayProgressView.theme.incompletedColor = [UIColor whiteColor];
+    self.todayProgressView.theme.completedColor = [UIColor iOS7redGradientStartColor];
     self.todayProgressView.theme.sliceDividerHidden = YES;
+    self.todayProgressView.theme.thickness = 7;
     self.todayProgressView.label.hidden = YES;
     
     self.pageCtr.transform = CGAffineTransformRotate(self.pageCtr.transform, M_PI_2);
@@ -65,28 +67,41 @@ static const int PAGE_MAX = 3;
     self.scrollBGView.pagingEnabled = YES;
     self.scrollBGView.delegate = self;
 
-    float barCalWidth = 44.* ( [PlankPlan sharedInstance].plankSessions != nil ? [PlankPlan sharedInstance].plankSessions.count:0);
+    float barCalWidth = 66.* ( [PlankPlan sharedInstance].plankSessions != nil ? [PlankPlan sharedInstance].plankSessions.count:0);
     
     self.scrollHorStatusView.backgroundColor = [UIColor clearColor];
     self.scrollHorStatusView.contentSize = CGSizeMake(self.view.bounds.size.width > barCalWidth ? self.view.bounds.size.width : barCalWidth, self.scrollHorStatusView.frame.size.height);
     self.scrollHorStatusView.scrollEnabled = YES;
 
-    PNBarChart *barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, barCalWidth, self.scrollHorStatusView.bounds.size.height)];
+    barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, barCalWidth, self.scrollHorStatusView.bounds.size.height)];
     if ([PlankPlan sharedInstance].plankSessions) {
-        [barChart setXLabels:[PlankPlan sharedInstance].dateArray];
-        //[barChart setYLabels:@[@"60",@"120",@"180",@"240"]];
-        [barChart setYValues:[PlankPlan sharedInstance].scoreArray];
-        [barChart strokeChart];
-        barChart.backgroundColor = [UIColor clearColor];
-        barChart.strokeColor = [UIColor yellowColor];
+        [self reloadBarView];
     }
+    
     [self.scrollHorStatusView addSubview:barChart];
     
 
     [self.pageCtr setCurrentPage:0];
     [self.pageCtr setNumberOfPages:3];
+    
+    self.startBtn.backgroundColor = [UIColor whiteColor];
+    self.startBtn.layer.cornerRadius = self.startBtn.bounds.size.width/2.;
 }
 
+- (void)reloadBarView{
+    float barCalWidth = 66.* ( [PlankPlan sharedInstance].plankSessions != nil ? [PlankPlan sharedInstance].plankSessions.count:0);
+    self.scrollHorStatusView.contentSize = CGSizeMake(self.view.bounds.size.width > barCalWidth ? self.view.bounds.size.width : barCalWidth, self.scrollHorStatusView.frame.size.height);
+    barChart.bounds = CGRectMake(0, 0, barCalWidth, self.scrollHorStatusView.bounds.size.height);
+    [barChart setXLabels:[PlankPlan sharedInstance].dateArray];
+    //[barChart setYLabels:@[@"60",@"120",@"180",@"240"]];
+    [barChart setYValues:[PlankPlan sharedInstance].scoreArray];
+    barChart.strokeColor = [UIColor iOS7redGradientStartColor];
+    barChart.backgroundColor = [UIColor clearColor];
+    
+    [self.scrollHorStatusView scrollRectToVisible:CGRectMake(self.scrollHorStatusView.contentSize.width - self.view.bounds.size.width, 0, self.scrollHorStatusView.frame.size.width, self.scrollHorStatusView.frame.size.height) animated:YES];
+    [barChart strokeChart];
+
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -96,7 +111,7 @@ static const int PAGE_MAX = 3;
 
 - (void)onTimer{
     sessionCount++;
-    self.todayProgressView.progressCounter = sessionCount;
+    self.todayProgressView.progressCounter = sessionCount%self.todayProgressView.progressTotal;
 }
 
 - (IBAction)onStart:(id)sender{
@@ -116,11 +131,14 @@ static const int PAGE_MAX = 3;
         [[PlankPlan sharedInstance].plankSessions addObject:s];
         [[PlankPlan sharedInstance] save];
         
-        
         sessionCount = 0;
         [self.todayProgressView setProgressCounter:0];
         
         [self.startBtn setTitle:@"START" forState:UIControlStateNormal];
+        [self.startBtn setTitleColor:[UIColor iOS7blackGradientEndColor] forState:UIControlStateNormal];
+        self.startBtn.backgroundColor = [UIColor whiteColor];
+        
+        [self reloadBarView];
         
     }else{
         //START
@@ -133,7 +151,8 @@ static const int PAGE_MAX = 3;
         [sessionTimer fire];
 
         [self.startBtn setTitle:@"STOP" forState:UIControlStateNormal];
-        [self.startBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [self.startBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.startBtn.backgroundColor = [UIColor iOS7redColor];
     }
     
     timerStatus = !timerStatus;
