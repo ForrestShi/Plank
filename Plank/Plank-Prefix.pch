@@ -28,6 +28,7 @@
 #import <iOS7Colors/UIColor+iOS7Colors.h>
 #import <Colours/UIColor+Colours.h>
 #import <NSDate+Helper/NSDate+Helper.h>
+#import <MYBlurIntroductionView/MYBlurIntroductionView.h>
 
 #import "Session.h"
 #import "PlankPlan.h"
