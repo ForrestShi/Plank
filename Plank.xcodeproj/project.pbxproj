@@ -32,6 +32,8 @@
 		CDE22966188E7FD600A969E8 /* plank1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDE22965188E7FD600A969E8 /* plank1.jpg */; };
 		CDE22969188E872D00A969E8 /* StepIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE22968188E872D00A969E8 /* StepIntroductionPanel.m */; };
 		CDE2296B188E8BB100A969E8 /* plank_purpose.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2296A188E8BB100A969E8 /* plank_purpose.png */; };
+		CDE2296E188E905300A969E8 /* plank1.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2296C188E905300A969E8 /* plank1.png */; };
+		CDE2296F188E905300A969E8 /* plank2.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2296D188E905300A969E8 /* plank2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		CDE22967188E872D00A969E8 /* StepIntroductionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepIntroductionPanel.h; sourceTree = "<group>"; };
 		CDE22968188E872D00A969E8 /* StepIntroductionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepIntroductionPanel.m; sourceTree = "<group>"; };
 		CDE2296A188E8BB100A969E8 /* plank_purpose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank_purpose.png; sourceTree = "<group>"; };
+		CDE2296C188E905300A969E8 /* plank1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank1.png; sourceTree = "<group>"; };
+		CDE2296D188E905300A969E8 /* plank2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,8 @@
 		CD855591187E9C7100D0860B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDE2296C188E905300A969E8 /* plank1.png */,
+				CDE2296D188E905300A969E8 /* plank2.png */,
 				CDE2296A188E8BB100A969E8 /* plank_purpose.png */,
 				CDE22965188E7FD600A969E8 /* plank1.jpg */,
 				CDB98EF518855625008CD2F8 /* bg4.jpg */,
@@ -285,9 +291,11 @@
 				CDE22966188E7FD600A969E8 /* plank1.jpg in Resources */,
 				CDE2296B188E8BB100A969E8 /* plank_purpose.png in Resources */,
 				CDB98EFA18855625008CD2F8 /* bg3.jpg in Resources */,
+				CDE2296F188E905300A969E8 /* plank2.png in Resources */,
 				CD8555A3187E9C7100D0860B /* Images.xcassets in Resources */,
 				CD855595187E9C7100D0860B /* InfoPlist.strings in Resources */,
 				CDB98EFB18855625008CD2F8 /* bg2.jpg in Resources */,
+				CDE2296E188E905300A969E8 /* plank1.png in Resources */,
 				CDB98EFC18855625008CD2F8 /* bg1.png in Resources */,
 				CDB98EF918855625008CD2F8 /* bg4.jpg in Resources */,
 				CD85559E187E9C7100D0860B /* Main.storyboard in Resources */,

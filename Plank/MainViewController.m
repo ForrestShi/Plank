@@ -39,9 +39,38 @@ static const int PAGE_MAX = 3;
     
     //[[LocalNotificationManager sharedInstance] registerLocalNotification:[NSDate dateWithTimeIntervalSinceNow:5] message:@"Time for Self Study"];
 
+    [self buildIntroductionView];
 
 }
 
+- (void)buildIntroductionView{
+    MYBlurIntroductionView *introductionView = [[MYBlurIntroductionView alloc] initWithFrame:self.view.bounds];
+    introductionView.backgroundColor = [UIColor colorWithWhite:.5 alpha:0.6];
+    introductionView.BackgroundImageView.image = [UIImage imageNamed:@"bg3.jpg"];
+    introductionView.delegate = self;
+    
+    UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+    headerView.image = [UIImage imageNamed:@"plank_purpose.png"];
+    headerView.contentMode =  UIViewAutoresizingFlexibleWidth | UIViewContentModeScaleAspectFill;
+    
+    MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"WHY PLANK ?" description:@"The plank is an exercise that works the body's core, specifically the abdominal muscles and lower back. The exercise is traditionally performed as part of yoga and Pilates regimens but is effective for anyone looking to improve core strength and balance. Performing a plank requires no equipment; body weight and gravity provide sufficient resistance." header:headerView];
+    
+    NSString *plankImg = @"plank2.png";
+    MYIntroductionPanel *panel21 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"Step 1: HOW TO DO PLANK" description:@"Lie face down on mat resting on the forearms, palms flat on the floor. "image:[UIImage imageNamed:@"plank2.png"] ];
+    
+    MYIntroductionPanel *panel22 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"Step 2: HOW TO DO PLANK" description:@"Push off the floor, raising up onto toes and resting on the elbows."image:[UIImage imageNamed:@"plank2.png"] ];
+    
+    MYIntroductionPanel *panel23 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"Step 3: HOW TO DO PLANK" description:@"Keep your back flat, in a straight line from head to heels. "image:[UIImage imageNamed:@"plank2.png"] ];
+    
+    MYIntroductionPanel *panel24 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"Step 4: HOW TO DO PLANK" description:@"Tilt your pelvis and contract your abdominals to prevent your rear end from sticking up in the air or sagging in the middle. Hold for 20 to 60 seconds, lower and repeat for 3-5 reps."image:[UIImage imageNamed:plankImg] ];
+    
+    [introductionView buildIntroductionWithPanels:@[panel1,panel21,panel22,panel23,panel24]];
+    [self.scrollBGView addSubview:introductionView];
+    
+    self.pageCtr.hidden = YES;
+    self.scrollBGView.scrollEnabled = NO;
+    self.scrollBGView.pagingEnabled = NO;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -88,29 +117,7 @@ static const int PAGE_MAX = 3;
     self.startBtn.backgroundColor = [UIColor whiteColor];
     self.startBtn.layer.cornerRadius = self.startBtn.bounds.size.width/2.;
     
-    MYBlurIntroductionView *introductionView = [[MYBlurIntroductionView alloc] initWithFrame:self.view.bounds];
-    introductionView.backgroundColor = [UIColor colorWithWhite:.5 alpha:0.6];
-    introductionView.BackgroundImageView.image = [UIImage imageNamed:@"bg3.jpg"];
-    introductionView.delegate = self;
- 
-    UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
-    headerView.image = [UIImage imageNamed:@"plank_purpose.png"];
-    headerView.contentMode =  UIViewAutoresizingFlexibleWidth | UIViewContentModeScaleAspectFill;
-    
-    MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"WHY PLANK ?" description:@"The plank is an exercise that works the body's core, specifically the abdominal muscles and lower back. The exercise is traditionally performed as part of yoga and Pilates regimens but is effective for anyone looking to improve core strength and balance. Performing a plank requires no equipment; body weight and gravity provide sufficient resistance." header:headerView];
-    
-    MYIntroductionPanel *panel21 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"Step 1: HOW TO DO PLANK" description:@"Lie face down on mat resting on the forearms, palms flat on the floor. "image:nil ];
 
-    MYIntroductionPanel *panel22 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"Step 2: HOW TO DO PLANK" description:@"Push off the floor, raising up onto toes and resting on the elbows."image:nil ];
-
-    MYIntroductionPanel *panel23 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"Step 3: HOW TO DO PLANK" description:@"Keep your back flat, in a straight line from head to heels. "image:nil ];
-    
-    MYIntroductionPanel *panel24 = [[MYIntroductionPanel alloc] initWithFrame:self.view.bounds title:@"Step 4: HOW TO DO PLANK" description:@"Tilt your pelvis and contract your abdominals to prevent your rear end from sticking up in the air or sagging in the middle. 5. Hold for 20 to 60 seconds, lower and repeat for 3-5 reps."image:nil ];
-    
-    [introductionView buildIntroductionWithPanels:@[panel1,panel21,panel22,panel23,panel24]];
-    [self.scrollBGView addSubview:introductionView];
-    
-    self.pageCtr.hidden = YES;
 }
 
 - (void)reloadBarView{
@@ -201,6 +208,8 @@ static const int PAGE_MAX = 3;
 
 -(void)introduction:(MYBlurIntroductionView *)introductionView didFinishWithType:(MYFinishType)finishType{
     self.pageCtr.hidden = NO;
+    self.scrollBGView.scrollEnabled = YES;
+        self.scrollBGView.pagingEnabled = YES;
 }
 
 @end
